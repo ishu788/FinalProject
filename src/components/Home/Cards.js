@@ -2,7 +2,7 @@ import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 
 function Cards({data}) {
-    console.log(data[0]);
+    console.log(data[2]);
   return (
     <Card style={{ width: '18rem' }}>
       <Card.Img variant="top" src="#"/>
