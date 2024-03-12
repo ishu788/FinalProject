@@ -5,7 +5,7 @@ function Cards({data}) {
     console.log(data[2]);
   return (
     <Card style={{ width: '18rem' }}>
-      <Card.Img variant="top" src={data[2].image}/>
+      <Card.Img variant="top" src={data[3].image}/>
       <Card.Body>
         <Card.Title>Card Title</Card.Title>
         <Card.Text>

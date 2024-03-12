@@ -20,8 +20,8 @@ function Home({ data }) {
               }}/>
       </section>
       </Container>
-      {/* <Product data = {data} className="mainDiv"/> */}
-      <Cards data={data}/>
+      <Product data = {data} className="mainDiv"/>
+      {/* <Cards data={data}/> */}
       </div>
           
   );

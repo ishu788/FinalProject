@@ -14,7 +14,7 @@ html {
   );
   */
 
-  --imp-text-color: #6EC6FF;
+  --imp-text-color: #871313;
 }
 
 .purple {
@@ -91,18 +91,18 @@ button:focus {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #6EC6FF;
+  background: #871313;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #6EC6FF;;
+  background: #871313;
   border-radius: 12px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #6EC6FF;
+  background: #871313;
   border-radius: 12px;
 }
 
@@ -131,7 +131,7 @@ button:focus {
 
 .navbar-toggler span {
   display: block !important;
-  background-color: #5094f4 !important;
+  background-color: #871313 !important;
   height: 4px !important;
   width: 27px !important;
   margin-top: 5px !important;
@@ -189,8 +189,9 @@ button:focus {
 }
 
 .logo {
-  height: 2em !important; /* Adjust the height value */
-  width: 3.5em !important; /* Adjust the width value */
+  height: 4em !important; /* Adjust the height value */
+  width: auto !important; /* Adjust the width value */
+ 
 }
 
 .navbar-nav .nav-link {
@@ -228,7 +229,7 @@ button:focus {
   height: 5px;
   width: 0;
   border-radius: 16px;
-  background: #6ec3ff;
+  background: #871313;
   bottom: 1px;
   left: 0;
   z-index: -1;
@@ -291,7 +292,7 @@ button:focus {
 .home-section {
   position: relative;
   z-index: -1;
-  background-image: var(--image-gradient), url(./Assets/blue_bg.png);
+  /* background-image: var(--image-gradient), url(./Assets/blue_bg.png); */
   background-position: top center;
   background-repeat: no-repeat;
   /* padding-bottom: 30px !important; */
@@ -315,17 +316,17 @@ button:focus {
 }
 
 .main-name {
-  color: #6EC6FF;
+  color: #871313;
 }
 
 .Typewriter__wrapper {
   font-size: 2.2em !important;
-  color: #6EC6FF !important;
+  color: #871313 !important;
   font-weight: 600 !important;
 }
 .Typewriter__cursor {
   font-size: 2.4em !important;
-  color: #6EC6FF !important;
+  color: #871313 !important;
 }
 
 @media (max-width: 767px) {
@@ -407,7 +408,7 @@ background-color: white;
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  background: #6EC6FF;
+  background: #871313;
   transition: 0.5s;
   transform: scale(0.9);
   z-index: -1;
@@ -591,7 +592,7 @@ background-color: white;
   margin: 15px !important;
   padding: 10px !important;
   opacity: 0.93 !important;
-  border: 1.7px solid #6EC6FF  !important;
+  border: 1.7px solid #871313  !important;
   vertical-align: middle !important;
   text-align: center !important;
   border-radius: 5px !important;
@@ -610,7 +611,7 @@ background-color: white;
 .tech-icons:hover {
   transform: scale(1.05) !important;
   overflow: hidden !important;
-  border: 2.2px solid #6EC6FF  !important;
+  border: 2.2px solid #871313  !important;
   background-color: rgba(110, 180, 255, 0.6);
 }
 .tech-icon-images {
