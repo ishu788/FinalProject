@@ -28,32 +28,48 @@ button:focus {
 
 .maindiv
 {
-  background-color: white;
+  background-color: #0f0b0a;
   width: 100%;
 }
 .cards-container {
   display: flex;
-  grid-template-columns: repeat(4, 10fr);
+  grid-template-columns: repeat(3, 10fr);
   flex-wrap: wrap; /* Allow cards to wrap to the next line if necessary */
   justify-content: center;
-  background-color: white;
-  margin-left: 10% ;
-  margin-right: 10%;
+  background-image: url(./Assets/bg-wine.jpg);
+  background-size:contain;
+  background-repeat: no-repeat;
+  /* margin-left: 20px;
+  margin-right: 20px; */
+  border: none;
 }
 
 .card {
-  margin: 100px;
+  background-color: rgba(0, 0, 0, 0) !important;
+  margin: 50px;
   text-align: center; /* Center text in the card */
+  width: 20%;
+  border: none;
+  
 }
+
 
 .card p {
   margin-bottom: 8px;
+  max-width: 300px;
+  height: auto;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 .card img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 4px;
+  align-items: center;
+  max-width: 50px;
+  height: 200px;
+ border: none;
+
 }
 
 /* --------- */
@@ -86,7 +102,7 @@ button:focus {
 /* --------- */
 
 ::-webkit-scrollbar {
-  width: 7px;
+  width: 2%;
 }
 
 /* Track */
@@ -110,7 +126,7 @@ button:focus {
 /* Navbar Section  */
 /* --------- */
 .sticky {
-  background-color: #6ec5ff0f !important;
+  background-color: #00000093 !important;
   transition: all 0.3s ease-out 0s !important;
   box-shadow: 0px 10px 10px 0px rgba(9, 5, 29, 0.171) !important;
   backdrop-filter: blur(15px) !important;
@@ -299,8 +315,14 @@ button:focus {
   
 }
 
+#home{
+  padding-right: 0px;
+  padding-left: 0px;
+
+}
+
 .home-content {
-  padding: 9rem 0 2rem !important;
+  /* padding: 9rem 0 2rem !important; */
   color: whitesmoke;
   text-align: left;
 }
@@ -354,10 +376,10 @@ button:focus {
 
 .home-about-section {
   position: relative;
-  padding-bottom: 70px !important;
-  padding-top: 70px !important;
+  padding-bottom: 0px !important;
+  padding-top: 0px !important;
   /* background-image: var(--image-gradient), url(./Assets/blue_bg.png); */
-background-color: white;
+background-color: #0f0b0a;
 }
 
 .home-about-description {
