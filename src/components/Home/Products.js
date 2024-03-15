@@ -1,5 +1,5 @@
 
-import { Container, Row, Col } from "react-bootstrap";
+import { Container} from "react-bootstrap";
 function Product( {data}){
     const generateRandomPrice = () => {
         // Define minimum and maximum price range
@@ -13,7 +13,7 @@ function Product( {data}){
         <Container fluid className="home-about-section" id="about">
         <div className="cards-container">
         <div style={{minWidth:"-webkit-fill-available",paddingTop:"20px"}}><h2 style={{color:"white"}}>Best Selling Products</h2></div>
-        {data.slice(1, 8).map((wine, index) => (
+        {data.slice(1, 10).map((wine, index) => (
             <div className="card" key={index}>
                 <div className="img-container">
                 <img src={wine.image} alt={`alt for ${wine.wine}`} />
