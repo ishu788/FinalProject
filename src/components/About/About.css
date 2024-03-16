@@ -1,0 +1,52 @@
+.about-section {
+    display: grid;
+    align-items: center;
+  }
+
+  .about-section > div {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  .about-h1 {
+    text-align: left;
+    margin-left: 150px;
+  }
+  .top {
+    width: 100%;
+    display: grid;
+    margin-top: 10px;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+  }
+  .top :hover {
+    background-color: #b9e3f3;
+    color: black;
+  }
+
+  .about-section .first-block {
+    display: grid;
+  }
+
+  .about-section .second-block {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    background-color: antiquewhite;
+    color: black;
+    text-align: left;
+  }
+
+  .test {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+  }
+
+  .about-img {
+    width: 110%;
+  }
+
+  .ourstory {
+    padding: 20px;
+  }
