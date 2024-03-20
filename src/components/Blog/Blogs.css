@@ -1,0 +1,44 @@
+.project-heading {
+    margin-top: 20px;
+    margin-bottom: 20px; 
+  }
+  
+  .purple {
+    color: purple; 
+  }
+  
+  .blog-cards {
+    display: flex; 
+    flex-wrap: wrap; 
+    gap: 20px; 
+    margin-top: 20px; 
+  }
+  
+  .blog-card {
+    flex: 1 0 300px; 
+    max-width: 100%; 
+  }
+  
+  .blog-card img {
+    height: 200px; 
+    object-fit: cover;
+    min-width: 100%;
+    width: 100%; 
+  }
+  
+  .blog-card .card-body {
+    padding: 1.25rem; 
+  }
+  
+  .blog-card .card-title {
+    font-size: 1.25rem; 
+    font-weight: bold; 
+  }
+  
+  .blog-card .card-text {
+    margin-bottom: 10px;
+  }
+  
+  .blog-card .text-muted {
+    font-size: 0.9rem;
+  }
