@@ -16,7 +16,7 @@ function Home({ data }) {
       <img src={homeImage} className="img-fluid" alt="avatar" 
               style={{
                 maxHeight: "700px",
-               width: "100%" // Adjust the value to move it to the right
+               width: "100%"
               }}/>
       </section>
       </Container>

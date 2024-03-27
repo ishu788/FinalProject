@@ -26,6 +26,44 @@ button:focus {
 }
 
 
+/* Cart pull up  */
+
+.cart_middle {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+
+
+.card:hover .img-container img{
+  opacity: 0.3;
+}
+.card:hover .name-container p{
+  opacity: 0.3;
+}
+
+
+.card:hover .cart_middle {
+  opacity: 1;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 .maindiv
 {
   background-color: #0f0b0a;
@@ -56,7 +94,7 @@ button:focus {
 .card:hover {
   transform: scale(1.05) !important;
   overflow: hidden !important;
-  border: 2.2px solid #871313  !important;
+  /* border: 2.2px solid #871313  !important; */
   background-color: rgba(110, 180, 255, 0.6);
 }
 
