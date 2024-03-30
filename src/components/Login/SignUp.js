@@ -67,6 +67,7 @@ function SignUp() {
           />
           <input
             type="submit"
+            value="Register"
             className="submit-button"
             onClick={submit}
           />

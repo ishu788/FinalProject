@@ -62,6 +62,7 @@ function Login() {
                 <input
                     type="submit"
                     className="submit-button"
+                    value="Login"
                     onClick={submit}
                 />
 
