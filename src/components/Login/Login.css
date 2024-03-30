@@ -1,0 +1,53 @@
+/* Login.css */
+
+.login {
+
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  text-align: center;
+  width: 300px; /* Adjust the width as needed */
+  margin: 150px auto 190px; /* Adjust the top margin to add space */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.login h1 {
+  color: #80002a;
+  padding-bottom: 20px; 
+  font-weight: bold;
+}
+
+.input-field {
+  margin-bottom: 10px;
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+.or {
+  color: white;
+}
+.submit-button {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: #80002a;
+  color: white;
+  cursor: pointer;
+}
+
+.submit-button:hover {
+  background-color: #e6004c; 
+}
+
+.link {
+  text-decoration: none;
+  color: #80002a;
+}
+
+.link:hover {
+  text-decoration: underline;
+  color:  #e6004c;
+}
