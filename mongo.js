@@ -1,5 +1,5 @@
 const mongoose=require("mongoose")
-mongoose.connect("mongodb://localhost:27017/wineDatabase")
+mongoose.connect("mongodb+srv://fullstack:fullstack@cluster0.vp4srop.mongodb.net/wineDatabase")
 .then(()=>{
     console.log("mongodb connected");
 })
