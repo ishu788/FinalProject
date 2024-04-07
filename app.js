@@ -8,15 +8,15 @@ app.use(cors())
 
 
 
-app.get("/",cors(),(req,res)=>{
+app.get("/", cors(), (req, res) => {
     res.json("hihi");
 })
 
-app.get("/api/products/all", async(req, res) => {
-    try{
-        const datas = await collection.product.find({});
-        console.log(datas);
-        const result =  datas.map((x) => {
+app.get("/api/products/all", async (req, res) => {
+    try {
+        const datas = await collection.product.find({}).sort({price :1});
+
+        const result = datas.map((x) => {
             return {
                 id: x._id,
                 winery: x.winery,
@@ -25,28 +25,30 @@ app.get("/api/products/all", async(req, res) => {
                 image: x.image
             }
         });
+        // .sort((a, b) => Number(a.price) - Number(b.price));
+        console.log(datas);
         res.json(result);
-    }catch(err) {
+    } catch (err) {
         console.log(err);
     }
 })
 
 
-app.post("/",async(req,res)=>{
-    const{email,password}=req.body
+app.post("/", async (req, res) => {
+    const { email, password } = req.body
 
-    try{
-        const check=await collection.user.findOne({email:email})
+    try {
+        const check = await collection.user.findOne({ email: email })
 
-        if(check){
+        if (check) {
             res.json("exist")
         }
-        else{
+        else {
             res.json("notexist")
         }
 
     }
-    catch(e){
+    catch (e) {
         res.json("fail")
     }
 
@@ -54,29 +56,29 @@ app.post("/",async(req,res)=>{
 
 
 
-app.post("/signup",async(req,res)=>{
+app.post("/signup", async (req, res) => {
     console.log("123")
-    const{email,password,username}=req.body
+    const { email, password, username } = req.body
 
-    const data={
-        email:email,
-        password:password,
-        username:username
+    const data = {
+        email: email,
+        password: password,
+        username: username
     }
 
-    try{
-        const check=await collection.user.findOne({email:email})
+    try {
+        const check = await collection.user.findOne({ email: email })
 
-        if(check){
+        if (check) {
             res.json("exist")
         }
-        else{
+        else {
             res.json("notexist")
             await collection.user.insertMany([data])
         }
 
     }
-    catch(e){
+    catch (e) {
         res.json("fail")
     }
 
@@ -84,17 +86,19 @@ app.post("/signup",async(req,res)=>{
 
 app.post('/api/orders', async (req, res) => {
     try {
-        const {user, items, totalPrice}  = req.body;
+        const { user, items, totalPrice } = req.body;
         const newOrder = new collection.order({
             user, items, totalPrice, status: 'Pending', createdAt: new Date(),
         });
         const saveOrder = await newOrder.save();
         res.status(201).json(saveOrder);
-    }catch(err) {
-        res.status(500).json({error: "Internal server error" + err});
+    } catch (err) {
+        res.status(500).json({ error: "Internal server error" + err });
     }
 })
 
-app.listen(8000,()=>{
+app.listen(8000, () => {
     console.log("port connected");
-})
+});
+
+
