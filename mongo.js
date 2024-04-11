@@ -71,9 +71,6 @@ const wines = [
 const user = mongoose.model("User",newSchema);
 const order = mongoose.model("Order", orderSchema);
 const product = mongoose.model("Product", productSchema);
-order.deleteMany({}).then(() => {
-    console.log("drop order table");
-});
 product.deleteMany({}).then(() => {
     console.log("drop all the product data first");
     product.insertMany(wines)
