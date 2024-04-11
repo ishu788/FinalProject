@@ -9,7 +9,7 @@ app.use(cors())
 
 
 app.get("/", cors(), (req, res) => {
-    res.json("hihi");
+    // res.json("hihi");
 })
 
 app.get("/api/products/all", async (req, res) => {
@@ -27,7 +27,7 @@ app.get("/api/products/all", async (req, res) => {
             }
         });
         // .sort((a, b) => Number(a.price) - Number(b.price));
-        console.log(datas);
+        // console.log(datas);
         res.json(result);
     } catch (err) {
         console.log(err);
@@ -84,6 +84,23 @@ app.post("/signup", async (req, res) => {
     }
 
 });
+
+app.post('/api/orders/processing', async (req, res) => {
+    try {
+        const result = await collection.order.find();
+        for (const order of result) {
+            var filter = { _id: order._id };
+            var update = { $set: { status: "Processing" } };
+
+            await collection.order.updateOne(filter, update);
+        }
+
+        res.json("Success");
+    } catch (err) {
+        res.status(500).json({ error: "Internal server error: " + err });
+    }
+
+})
 
 app.get('/api/orders', async (req, res) => {
     try{
