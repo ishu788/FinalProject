@@ -18,6 +18,7 @@ const newSchema=new mongoose.Schema({
         required:true
     }
 });
+// {"productName":"Pêra-Manca Tinto 1990","quantity":2,"itemPrice":18.5,"totalPrice":37}
 const productSchema = new mongoose.Schema({
     winery: String,
     wine: String,
@@ -33,32 +34,17 @@ const productSchema = new mongoose.Schema({
 
 
 const orderSchema = new mongoose.Schema({
-    user: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User',
-        required: false
+    email: String,
+    productName: String,
+    itemPrice: {
+        type: Number,
+        required: true,
     },
-    items: [
-        {
-            productId: {
-                type: mongoose.Schema.Types.ObjectId,
-                ref: 'Product',
-                required: true
-            },
-            quantity: {
-                type: Number,
-                required: true
-            },
-            price: {
-                type: Number,
-                required: true
-            }
-        }
-    ],
     totalPrice: {
         type: Number,
         required: true
     },
+    quantity: Number,
     status: {
         type: String,
         enum: ['Pending', 'Processing', 'Shipped', 'Delivered'],
@@ -85,6 +71,9 @@ const wines = [
 const user = mongoose.model("User",newSchema);
 const order = mongoose.model("Order", orderSchema);
 const product = mongoose.model("Product", productSchema);
+order.deleteMany({}).then(() => {
+    console.log("drop order table");
+});
 product.deleteMany({}).then(() => {
     console.log("drop all the product data first");
     product.insertMany(wines)

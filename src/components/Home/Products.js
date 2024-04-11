@@ -13,7 +13,7 @@ function Product( {data}){
     const [searchKeyword, setSearchKeyword] = useState("");
     const [filteredData, setFilteredData] = useState([]);
 
-
+    const [email, setEmail] = useState('');
     const [listing,setShowListing] = useState(false);
     const [listingName,setListingName] = useState("");
     const [listingDescription,setListingDescription]  = useState("");
@@ -21,6 +21,11 @@ function Product( {data}){
     useEffect(() => {
         setFilteredData(data.filter(wine => wine.wine.toLowerCase().includes(searchKeyword.toLowerCase())));
     }, [searchKeyword, data]);
+
+    useEffect(() => {
+        localStorage.getItem('email');
+        setEmail(email);
+    },[]);
 
     const handleOrder = () => {
         fetch('http://localhost:8000/api/orders', {
@@ -30,10 +35,13 @@ function Product( {data}){
             },
             body: JSON.stringify({
                 // user: 'aaa',
+                status: "Pending",
                 productName: selectedWine,
                 quantity: quantity,
                 itemPrice: selectedPrice,
                 totalPrice: selectedPrice * quantity,
+                email: email,
+                createdAt: new Date(),
             }),
         })
         .then(response => response.json())
@@ -79,7 +87,7 @@ function Product( {data}){
                                         setShowListing(true);
                                         setListingName(wine.wine);
                                         setListingDescription(wine.rating);
-                                        
+
                                 }}>
                                 <TbListDetails/>
                             </div>
@@ -125,13 +133,13 @@ function Product( {data}){
             <Modal show={listing} onHide={() => setShowListing(false)}>
                 <Modal.Header closeButton>
                 <Modal.Title>Wine: {listingName}</Modal.Title>
-                </Modal.Header> 
+                </Modal.Header>
                 <Modal.Body>
                     Rating : {listingDescription}
-                   
+
                     <BasicExample description={listingDescription} />
                 </Modal.Body>
-                   
+
             </Modal>
         </Container>
     );

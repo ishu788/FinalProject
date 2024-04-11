@@ -50,7 +50,7 @@ function Login() {
                 <input
                     type="email"
                     className="input-field"
-                    onChange={(e) => { setEmail(e.target.value) }}
+                    onChange={(e) => { setEmail(e.target.value); localStorage.setItem('email', e.target.value); }}
                     placeholder="Email"
                 />
                 <input

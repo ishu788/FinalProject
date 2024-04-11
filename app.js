@@ -85,11 +85,21 @@ app.post("/signup", async (req, res) => {
 
 });
 
+app.get('/api/orders', async (req, res) => {
+    try{
+        const result = await collection.order.find({}).sort({createdAt: -1});
+        res.json(result);
+    }catch(err) {
+        res.status(500).json({ error: "Internal server error" + err });
+    }
+})
+
 app.post('/api/orders', async (req, res) => {
     try {
-        const { user, items, totalPrice } = req.body;
+        const {totalPrice, itemPrice, productName, email,quantity } = req.body;
+        console.log("req.body" + req.body);
         const newOrder = new collection.order({
-            user, items, totalPrice, status: 'Pending', createdAt: new Date(),
+            totalPrice, status: 'Pending', createdAt: new Date(),itemPrice, productName, email,quantity
         });
         const saveOrder = await newOrder.save();
         res.status(201).json(saveOrder);
