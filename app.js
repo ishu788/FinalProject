@@ -22,7 +22,8 @@ app.get("/api/products/all", async (req, res) => {
                 winery: x.winery,
                 wine: x.wine,
                 price: x.price,
-                image: x.image
+                image: x.image,
+                rating: x.rating.reviews
             }
         });
         // .sort((a, b) => Number(a.price) - Number(b.price));

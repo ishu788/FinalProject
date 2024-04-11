@@ -3,6 +3,8 @@ import { TbListDetails } from "react-icons/tb";
 import React, { useState, useEffect } from 'react';
 import { FaShoppingCart } from "react-icons/fa";
 
+import ProgressBar from 'react-bootstrap/ProgressBar';
+
 function Product( {data}){
     const [showModal, setShowModal] = useState(false);
     const [quantity, setQuantity] = useState(1);
@@ -10,6 +12,11 @@ function Product( {data}){
     const [selectedPrice, setPrice] = useState(null);
     const [searchKeyword, setSearchKeyword] = useState("");
     const [filteredData, setFilteredData] = useState([]);
+
+
+    const [listing,setShowListing] = useState(false);
+    const [listingName,setListingName] = useState("");
+    const [listingDescription,setListingDescription]  = useState("");
 
     useEffect(() => {
         setFilteredData(data.filter(wine => wine.wine.toLowerCase().includes(searchKeyword.toLowerCase())));
@@ -68,7 +75,12 @@ function Product( {data}){
                                 }}>
                                 <FaShoppingCart />
                             </div>
-                            <div style={{ fontSize: "40px" , marginRight: "-120px", marginTop:"-60px", color:"white",fontWeight:"bolder"}}>
+                            <div style={{ fontSize: "40px" , marginRight: "-120px", marginTop:"-60px", color:"white",fontWeight:"bolder"}} onClick={() => {
+                                        setShowListing(true);
+                                        setListingName(wine.wine);
+                                        setListingDescription(wine.rating);
+                                        
+                                }}>
                                 <TbListDetails/>
                             </div>
                         </div>
@@ -109,8 +121,25 @@ function Product( {data}){
                     <Button variant="primary" onClick={handleOrder}>Confirm Order</Button>
                 </Modal.Footer>
             </Modal>
+
+            <Modal show={listing} onHide={() => setShowListing(false)}>
+                <Modal.Header closeButton>
+                <Modal.Title>Wine: {listingName}</Modal.Title>
+                </Modal.Header> 
+                <Modal.Body>
+                    Rating : {listingDescription}
+                   
+                    <BasicExample description={listingDescription} />
+                </Modal.Body>
+                   
+            </Modal>
         </Container>
     );
 }
+
+function BasicExample({ description }) {
+    console.log(description);
+    return <ProgressBar variant="success" now={parseInt(description, 10)} />;
+  }
 
 export default Product;

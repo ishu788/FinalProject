@@ -5,7 +5,7 @@ import homesvg from "../../Assets/lottie1.json";
 
 import homeImage from "../../Assets/homewine.jpg";
 import homeImage2 from "../../Assets/homewine2.jpg";
-import homeImage3 from "../../Assets/Wines/red-wine-1129189_1920.jpg";
+import homeImage3 from "../../Assets/Wines/came-2933943_1920.jpg";
 
 
 
@@ -18,8 +18,8 @@ function Home({ data }) {
     
     <div>
       <Container fluid className="home-section" id="home">
-
-      <Carousel fade interval={5000}> 
+      
+      <Carousel fade interval={3000}> 
         <Carousel.Item>
           <img
             className="d-block w-100"
@@ -30,6 +30,12 @@ function Home({ data }) {
               width: "100%"
             }}
           />
+          <Carousel.Caption>
+                <h3 style={{ fontWeight: "bold", color: "white",marginBottom:"300px", marginLeft:"750px", fontSize:"50px" }}>CellarCraft
+                <h6 style={{marginTop:"20px"}}>No. 1 Wine seller in North America</h6></h3>
+
+            </Carousel.Caption>
+            
         </Carousel.Item>
         <Carousel.Item>
           <img
