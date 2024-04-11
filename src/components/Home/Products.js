@@ -63,13 +63,13 @@ function Product( {data}){
             <div className="cards-container">
                 <div style={{minWidth:"-webkit-fill-available",paddingTop:"20px"}}>
                     <h2 style={{color:"white"}}>Best Selling Products</h2>
-                    <Form.Group controlId="formBasicSearch">
+                    <Form.Group controlId="formBasicSearch" style={{marginLeft:"750px"}}>
                         <Form.Control
                             type="text"
-                            placeholder="Search..."
+                            placeholder="Search by name..."
                             value={searchKeyword}
                             onChange={handleSearch}
-                            style={{ width: "150px" }} // Adjust the width here
+                            style={{ width: "200px" , backgroundColor: "transparent",color:"white"}} // Adjust the width here
                         />
                     </Form.Group>
                 </div>
