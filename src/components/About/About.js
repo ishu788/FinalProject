@@ -2,10 +2,14 @@ import React from "react";
 import { Container } from "react-bootstrap";
 import './About.css';
 import winepng from './about-wine.png';
+import LottieAnimation from './../Lottie';
+import filesvg from './../../Assets/catwine.json';
 function About() {
   return (
     <Container fluid className="about-section">
-    <h1 className="about-h1"> A Few Highlight</h1>
+
+    <LottieAnimation Lottie={filesvg}  />
+   
       <Container>
 
         <div className="top">

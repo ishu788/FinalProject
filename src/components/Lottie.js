@@ -1,6 +1,6 @@
 import React from 'react';
 import Lottie from 'react-lottie';
-import * as animationData from '../Assets/lottie1.json';
+import * as animationData from '../Assets/catwine.json';
 
 
 
