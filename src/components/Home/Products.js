@@ -18,6 +18,9 @@ function Product( {data}){
     const [listingName,setListingName] = useState("");
     const [listingDescription,setListingDescription]  = useState("");
 
+
+    const [showPlaced, setShowPlaced] = useState(false);
+
     useEffect(() => {
         setFilteredData(data.filter(wine => wine.wine.toLowerCase().includes(searchKeyword.toLowerCase())));
     }, [searchKeyword, data]);
@@ -126,23 +129,22 @@ function Product( {data}){
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={() => setShowModal(false)}>Cancel</Button>
-                    <Button variant="primary" onClick={handleOrder}>Confirm Order</Button>
+                    <Button variant="primary" onClick={() => {handleOrder(); setShowPlaced(true);}}>Confirm Order</Button>
                 </Modal.Footer>
             </Modal>
-
-            <Modal show={listing} onHide={() => setShowListing(false)}>
-                <Modal.Header closeButton>
-                <Modal.Title>Wine: {listingName}</Modal.Title>
+            <Modal show={showPlaced} onHide={() => setShowPlaced(false)}>
+                <Modal.Header>
+                    Your order has been placed.
                 </Modal.Header>
-                <Modal.Body>
-                    Rating : {listingDescription}
-
-                    <BasicExample description={listingDescription} />
-                </Modal.Body>
-
             </Modal>
+            
         </Container>
     );
+}
+
+function final()
+{
+    
 }
 
 function BasicExample({ description }) {
