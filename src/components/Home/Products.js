@@ -31,7 +31,7 @@ function Product( {data}){
     },[]);
 
     const handleOrder = () => {
-        fetch('http://localhost:8000/api/orders', {
+        fetch('https://mongorestapi-wine.onrender.com/api/orders', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -137,14 +137,14 @@ function Product( {data}){
                     Your order has been placed.
                 </Modal.Header>
             </Modal>
-            
+
         </Container>
     );
 }
 
 function final()
 {
-    
+
 }
 
 function BasicExample({ description }) {

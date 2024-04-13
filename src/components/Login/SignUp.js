@@ -17,7 +17,7 @@ function SignUp() {
 
       try{
 
-          await axios.post("http://localhost:8000/signup",{
+          await axios.post("https://mongorestapi-wine.onrender.com/signup",{
               email,password, username
           })
           .then(res=>{
@@ -74,7 +74,7 @@ function SignUp() {
         </form>
         <br />
         <p className="or" >OR</p>
-      
+
         <Link className="link" to="/login">Login Page</Link>
       </div>
   </Container>

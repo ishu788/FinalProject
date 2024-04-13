@@ -22,7 +22,7 @@ function App() {
   const [load, upadateLoad] = useState(true);
   const [data, setData] = useState([])
   useEffect( ()  => {
-    fetch('http://localhost:8000/api/products/all')
+    fetch('https://mongorestapi-wine.onrender.com/api/products/all')
     .then( res => res.json())
     .then (data => setData(data))
     .catch(err=> console.log(err))

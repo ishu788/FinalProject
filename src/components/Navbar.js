@@ -42,7 +42,7 @@ function NavBar() {
   window.addEventListener("scroll", scrollHandler);
 
   const getOrders = () => {
-    fetch('http://localhost:8000/api/orders', {
+    fetch('https://mongorestapi-wine.onrender.com/api/orders', {
       method: 'GET',
     })
     .then(response => response.json())
