@@ -17,6 +17,7 @@ import "./style.css";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Blog from "./components/Blog/Blog";
+import OrderHistory from "./components/Order/OrderHistory";
 
 function App() {
   const [load, upadateLoad] = useState(true);
@@ -46,6 +47,7 @@ function App() {
           <Route path="/" element={<Home data = {data}/>} />
           <Route path="/about" element={<About />} />
           <Route path="/blog" element={<Blog />} />
+          <Route path="/history" element={<OrderHistory/>} />
           <Route path="*" element={<Navigate to="/"/>} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup/>}/>

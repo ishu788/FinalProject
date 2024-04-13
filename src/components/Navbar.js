@@ -5,19 +5,20 @@ import Container from "react-bootstrap/Container";
 import logo from "../Assets/logo.png";
 //import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
+import { Modal, Form, Button} from "react-bootstrap";
 import {
   //AiFillStar,
   AiOutlineHome,
   AiOutlineFundProjectionScreen,
   AiOutlineUser,
   AiOutlineLogin,
+  AiOutlineHistory,
 } from "react-icons/ai";
 
 
 import { CgFileDocument } from "react-icons/cg";
 import { CiShoppingCart } from "react-icons/ci";
 import Cart from "./Cart/OffCanvas";
-import { Modal } from "react-bootstrap";
 
 import Table from 'react-bootstrap/Table';
 
@@ -41,12 +42,31 @@ function NavBar() {
 
   window.addEventListener("scroll", scrollHandler);
 
+  const updateOrders = (orderlist) => {
+    fetch('https://mongorestapi-wine.onrender.com/api/orders/checkout', {
+          method: 'PUT',
+          body: JSON.stringify(orderlist), // Send the updated order list in the request body
+          headers: {
+                'Content-Type': 'application/json'
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+
+    })
+    .catch(err => {
+        console.log('Update Error' ,err)
+    })
+
+  }
+
   const getOrders = () => {
     fetch('https://mongorestapi-wine.onrender.com/api/orders', {
       method: 'GET',
     })
     .then(response => response.json())
     .then(data => {
+        console.log(data);
       setOrdersData(data);
     })
     .catch(error => {
@@ -100,6 +120,15 @@ function NavBar() {
                 <AiOutlineUser style={{ marginBottom: "2px" }} /> Blog
               </Nav.Link>
             </Nav.Item>
+            <Nav.Item>
+              <Nav.Link
+                as={Link}
+                to="/history"
+                onClick={() => updateExpanded(false)}
+              >
+                <AiOutlineHistory style={{ marginBottom: "2px" }} /> History
+              </Nav.Link>
+            </Nav.Item>
              <Nav.Item>
               <Nav.Link
                 as={Link}
@@ -109,7 +138,7 @@ function NavBar() {
               </Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link onClick={() => {updateExpanded(false); setShowOrders(true);}}>
+              <Nav.Link onClick={() => {updateExpanded(false);getOrders(); setShowOrders(true);}}>
                <div style={{ fontSize: "30px" , marginRight: "-50px", marginTop:"-10px"}}>
                 <CiShoppingCart />
                 </div>
@@ -134,7 +163,7 @@ function NavBar() {
                 </tr>
               </thead>
               <tbody>
-              {ordersData.slice(0, Math.ceil(ordersData.length / 3)).map((order, index) => (
+              {ordersData.map((order, index) => (
               <tr key={index}>
                 <td>{index + 1}</td>
                 <td>{order.productName}</td>
@@ -147,6 +176,7 @@ function NavBar() {
 
               </tbody>
             </Table>
+            <Button variant="primary" onClick={() => {updateOrders(ordersData);getOrders();}}>Check Out</Button>
           </Modal.Body>
         </Modal>
       </Container>
